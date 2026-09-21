@@ -217,9 +217,9 @@ view_slot = st.empty()
 def _render(current):
     with view_slot.container():
         c1, c2 = st.columns([3, 2])
-        c1.plotly_chart(build_network(net, a, current, show_uni), width="stretch", key="net_chart")
+        c1.plotly_chart(build_network(net, a, current, show_uni), width="stretch", key=f"net_chart_{current}")
         c2.markdown("**Abbruchregel: beste Route μ gegen untere Schranke**")
-        c2.plotly_chart(build_bounds(bi, current), width="stretch", key="bounds_chart")
+        c2.plotly_chart(build_bounds(bi, current), width="stretch", key=f"bounds_chart_{current}")
         c2.caption(f"Nach {current} von {last_step} Festlegungen. Gestoppt wird ({'sobald die Schranke μ erreicht' if bi.stopped_by == 'bound' else 'bei der ersten Begegnung' if bi.stopped_by == 'meeting' else 'weil eine Suche nichts mehr zu tun hat'}): "
                    f"μ = {_g(bi.mu_hist[min(current, last_step)])}, Schranke = {_g(bi.lower_hist[min(current, last_step)])}.")
 
