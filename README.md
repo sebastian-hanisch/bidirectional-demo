@@ -1,5 +1,7 @@
 # Bidirektionale Suche – von beiden Enden gleichzeitig – Streamlit-Demo
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-bidirectional-demo.streamlit.app/)**
+
 Drittes Stück der **Kürzeste-Wege-Linie** der "Konzepte"-Reihe für die Website "Sebastian Hanisch – Operations Research und Machine Learning", Fortsetzung der [Dijkstra-Demo](../dijkstra-demo):
 anders als die Fall-Demos im Portfolio (ein Anwendungsfall, mehrere Verfahren im Vergleich) zeigt diese Demo **ein** Verfahren – die **bidirektionale Dijkstra-Suche** – an einem wachsenden Beispiel.
 Dijkstra legt alles fest, was näher am Start liegt als das Ziel – einen Kreis, dessen Fläche mit dem Quadrat der Entfernung wächst. Die bidirektionale Suche startet zusätzlich **am Ziel** und läuft rückwärts über die umgedrehten Kanten:
