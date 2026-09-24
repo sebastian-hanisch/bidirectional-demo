@@ -22,6 +22,7 @@ from bd_presets import (
     init_session_state_defaults,
     load_permalink_settings,
     randomize_seed,
+    seed_widget,
     sync_query_params,
 )
 from bd_scenario import make_network
@@ -129,13 +130,17 @@ with st.sidebar:
              "Alle Kosten sind ganze Zahlen.",
     )
     if net_key == "city":
+        seed_widget("side_slider")
         side = st.slider("Kreuzungen je Seite", *bounds("side_slider"), key="side_slider", help="Größe des Stadtnetzes (Seite × Seite).")
         st.session_state[KEPT["side_slider"]] = side
+        seed_widget("reach_slider")
         reach = st.slider("Reichweite der Straßen [Blocklängen]", *bounds("reach_slider"), key="reach_slider", step=0.1,
                           help="Wie weit eine Straße zwischen zwei Kreuzungen reichen darf (1 = nur Nachbarn im Raster, größer = auch längere Verbindungen).")
         st.session_state[KEPT["reach_slider"]] = reach
+        seed_widget("spread_slider")
         spread = st.slider("Streuung der Kosten", *bounds("spread_slider"), key="spread_slider", step=0.25, help="Kosten einer Straße = Länge × (1 + Streuung × Zufall), gerundet auf ganze Meter.")
         st.session_state[KEPT["spread_slider"]] = spread
+        seed_widget("blocked_slider")
         blocked = st.slider("Gesperrte Straßen [%]", *bounds("blocked_slider"), key="blocked_slider", help="Anteil der gesperrten Straßen (das Netz bleibt zusammenhängend).")
         st.session_state[KEPT["blocked_slider"]] = blocked
     else:
@@ -144,16 +149,19 @@ with st.sidebar:
         spread = float(st.session_state.get(KEPT["spread_slider"], C.DEFAULT_SPREAD))
         blocked = int(st.session_state.get(KEPT["blocked_slider"], C.DEFAULT_BLOCKED))
     if net_key in C.NODE_NETS:
+        seed_widget("nodes_slider")
         nodes = st.slider("Knoten", *bounds("nodes_slider"), key="nodes_slider", step=100, help="Anzahl der Knoten des Zufallsnetzes.")
         st.session_state[KEPT["nodes_slider"]] = nodes
     else:
         nodes = int(st.session_state.get(KEPT["nodes_slider"], C.DEFAULT_NODES))
     if net_key == "random":
+        seed_widget("degree_slider")
         degree = st.slider("Mittlerer Grad", *bounds("degree_slider"), key="degree_slider", step=0.5, help="Wie viele Nachbarn ein Knoten im Mittel hat. Mit mehr Nachbarn wachsen die Kugeln schneller.")
         st.session_state[KEPT["degree_slider"]] = degree
     else:
         degree = float(st.session_state.get(KEPT["degree_slider"], C.DEFAULT_DEGREE))
     if net_key != "small":
+        seed_widget("distance_slider")
         distance = st.slider("Entfernung Start–Ziel [%]", *bounds("distance_slider"), key="distance_slider",
                              help="Welcher Knoten das Ziel ist: der, dessen Entfernung vom Start in der Rangfolge aller erreichbaren Knoten bei diesem Prozentwert liegt (100 = der am weitesten entfernte).")
         st.session_state[KEPT["distance_slider"]] = distance
@@ -166,6 +174,7 @@ with st.sidebar:
                              help="Welche Suche als Nächstes einen Knoten festlegt: strikt abwechselnd (Buch), die mit der kleineren Warteschlange, oder die mit dem kleineren Schlüssel (gleiche Radien). "
                                   "Bei ungleicher Dichte gewinnt die beidseitige Suche (Mittel über fünf feste Netze) strikt abwechselnd das 2.0-Fache, mit der kleineren Front zuerst das 2.7-Fache, mit gleichen Radien nur das 1.6-Fache.")
     if net_key in ("city", "random", "asym"):
+        seed_widget("seed_input")
         seed = st.number_input("Zufalls-Seed", *bounds("seed_input"), key="seed_input", step=1)
         st.session_state[KEPT["seed_input"]] = seed
         st.button("🎲 Neues Netz generieren", width="stretch", on_click=randomize_seed, help="Würfelt einen neuen Zufalls-Seed für das Netz.")
