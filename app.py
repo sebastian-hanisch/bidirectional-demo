@@ -94,7 +94,7 @@ die erste Begegnung der beiden Suchen ist nicht immer die kürzeste Route. Diese
 )
 st.caption(
     "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - drittes Stück der Kürzeste-Wege-Linie der \"Konzepte\"-Reihe, Fortsetzung der Dijkstra-Demo - **ein** Verfahren an einem wachsenden Beispiel. "
-    "Die Schwächen der bidirektionalen Suche sind die Ansatzpunkte der nächsten Stücke: jede Anfrage beginnt von vorn (**Contraction Hierarchies** rechnen vor), und die Suche kennt die Richtung des Ziels nicht (**A\\***, bidirektionales A\\* in der Baumsuche-Linie). "
+    "Die Schwächen der bidirektionalen Suche sind die Ansatzpunkte der nächsten Stücke: jede Anfrage beginnt von vorn (**Contraction Hierarchies** rechnen vor), und die Suche kennt die Richtung des Ziels nicht (**A\\*** in der Baumsuche-Linie). "
     "Das Verfahren folgt dem Algorithmus 3.5 in *Optimization Algorithms* (A. Khamis, Kap. 3.4.3), dessen Pseudocode bei der ersten Begegnung abbricht - beide Regeln laufen hier nebeneinander. Die Netze sind eigene Graphen und OpenStreetMap-Daten."
 )
 
@@ -368,7 +368,7 @@ st.markdown(
 |---|---|---|
 | **Zwei kleine Kreise sind viel kleiner als ein großer** | Nur im Zufallsnetz (exponentielles Wachstum, 14-fach). In der Ebene bleibt es beim Flächenargument, im Stadtnetz 1.7-fach, im echten Toronto-Netz ebenfalls 1.7-fach - bei einem Prozent der Paare ohne Gewinn. | (kein Nachfolger: das ist die Natur flacher Netze) |
 | **Die erste Begegnung genügt** | Im Stadtnetz ist die Route bei der ersten Begegnung in 81 % der Zufallspaare nicht die kürzeste (im Mittel 9 % zu lang), in Toronto in 45 %, im Zufallsnetz in 33 %. Korrekt ist erst: Schranke ≥ beste Route. | die korrekte Abbruchregel (diese Demo) |
-| **Die Suche kennt kein Ziel** | Beide Suchen laufen weiter in alle Richtungen: im Toronto-Netz legt sie für das gezeigte Paar 3 547 Knoten fest, über ein Drittel des Netzes. | **A\\*** und bidirektionales A\\* (Baumsuche-Linie) |
+| **Die Suche kennt kein Ziel** | Beide Suchen laufen weiter in alle Richtungen: im Toronto-Netz legt sie für das gezeigte Paar 3 547 Knoten fest, über ein Drittel des Netzes. | **A\\*** (Baumsuche-Linie) |
 | **Jede Anfrage beginnt von vorn** | Auch beidseitig kostet jede Anfrage tausende festgelegte Knoten; nichts wird für die nächste Anfrage aufgehoben. | **Contraction Hierarchies**: erst vorrechnen, dann blitzschnell fragen |
 | **Ein Rückwärtsgraph und zwei Warteschlangen sind billig** | Der umgedrehte Graph verdoppelt den Speicher, jede Festlegung ist teurer: in reinem Python ist die beidseitige Suche trotz weniger Knoten nicht schneller (Laufzeiten im Vergleich oben). | |
 """

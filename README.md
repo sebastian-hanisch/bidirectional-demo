@@ -8,7 +8,7 @@ Dijkstra legt alles fest, was näher am Start liegt als das Ziel – einen Kreis
 zwei Kreise mit halbem Radius statt einem großen. Der Haken ist die Frage, **wann man aufhören darf** – die erste Begegnung der beiden Suchen ist nicht immer die kürzeste Route.
 
 **Einordnung in die Reihe (die Kanten des Graphen):** die Bidirektionale Suche setzt an Dijkstras Schwäche "blind in alle Richtungen" an und ist selbst wieder Baustein: jede Anfrage beginnt von vorn
-(→ Contraction Hierarchies, deren Abfrage bidirektional ist und ein großes echtes Straßennetz braucht), und die Suche kennt die Richtung des Ziels nicht (→ A\*, bidirektionales A\* in der Baumsuche-Linie).
+(→ Contraction Hierarchies, deren Abfrage bidirektional ist und ein großes echtes Straßennetz braucht), und die Suche kennt die Richtung des Ziels nicht (→ A\* in der Baumsuche-Linie).
 ```
 bfs-demo (Wurzel: Kanten zählen, nicht Kosten)                              [gebaut]
   └─ dijkstra-demo (Kosten korrekt, blind in alle Richtungen)               [gebaut]
