@@ -373,7 +373,7 @@ st.markdown(
 | **Ein Rückwärtsgraph und zwei Warteschlangen sind billig** | Der umgedrehte Graph verdoppelt den Speicher, jede Festlegung ist teurer: in reinem Python ist die beidseitige Suche trotz weniger Knoten nicht schneller (Laufzeiten im Vergleich oben). | |
 """
 )
-st.caption("Die Nachbarn der Kürzeste-Wege-Linie (noch nicht gebaut): Contraction Hierarchies, Bellman-Ford, Floyd-Warshall, Johnson und Mehrkriterien-Routing. Bereits gebaut: die Breitensuche-Demo und die Dijkstra-Demo. A\\* steht in der Baumsuche-Linie.")
+st.caption("Die Nachbarn der Kürzeste-Wege-Linie (inzwischen alle gebaut): Contraction Hierarchies, Bellman-Ford, Floyd-Warshall, Johnson und Mehrkriterien-Routing. Bereits gebaut: die Breitensuche-Demo und die Dijkstra-Demo. A\\* steht in der Baumsuche-Linie.")
 
 st.markdown("---")
 
@@ -403,6 +403,6 @@ st.markdown("---")
 
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Kürzeste Wege: von der Breitensuche bis RAPTOR](https://sebastianhanisch.net/konzepte-kuerzeste-wege.html)."
 )

@@ -12,9 +12,9 @@ zwei Kreise mit halbem Radius statt einem großen. Der Haken ist die Frage, **wa
 ```
 bfs-demo (Wurzel: Kanten zählen, nicht Kosten)                              [gebaut]
   └─ dijkstra-demo (Kosten korrekt, blind in alle Richtungen)               [gebaut]
-       ├─ bidirectional-demo (von beiden Enden) → Contraction Hierarchies   [dieses Stück → nicht gebaut]
-       ├─ Bellman-Ford + Floyd-Warshall → Johnson (Konvergenz: Umgewichtung) [nicht gebaut]
-       └─ Mehrkriterien-Routing (Zeit gegen CO₂, Pareto)                    [nicht gebaut]
+       ├─ bidirectional-demo (von beiden Enden) → Contraction Hierarchies   [dieses Stück]
+       ├─ Bellman-Ford + Floyd-Warshall → Johnson (Konvergenz: Umgewichtung) [gebaut]
+       └─ Mehrkriterien-Routing (Zeit gegen CO₂, Pareto)                    [gebaut]
 A* steht einmal in der Baumsuche-Linie und wird von hier aus nur verlinkt.
 ```
 
@@ -78,3 +78,7 @@ streamlit run app.py
 ```
 
 Tests: `pip install -r requirements-dev.txt` und `python -m pytest tests/`. Jede Zahl in Hilfetexten, Presets und Tabellen ist in `tests/test_claims.py` belegt; die Kreuzprobe läuft gegen networkx (`dijkstra_path_length`, `bidirectional_dijkstra`).
+
+---
+
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Kürzeste Wege: von der Breitensuche bis RAPTOR](https://sebastianhanisch.net/konzepte-kuerzeste-wege.html).
